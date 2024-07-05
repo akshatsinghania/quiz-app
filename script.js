@@ -21,24 +21,79 @@ const questions = [
     ],
   },
   {
-    question: "Which is the largest animal in the world ?",
+    question: "Which is the largest desert in the world ?",
     answers: [
       {
-        text: "Shark",
+        text: "kalahari",
         correct: false,
       },
       {
-        text: "Blue whale",
+        text: "Gobi",
+        correct: false,
+      },
+      {
+        text: "Sahara",
+        correct: false,
+      },
+      {
+        text: "Antarctica",
+        correct: true,
+      },
+    ],
+  },
+  {
+    question: "Which is the smallest cotinent in the world ?",
+    answers: [
+      {
+        text: "Asia",
+        correct: false,
+      },
+      {
+        text: "Australia",
         correct: true,
       },
       {
-        text: "Elephant",
+        text: "Arctic",
         correct: false,
       },
       {
-        text: "Giraffe",
+        text: "Africa",
+        correct: false,
+      },
+    ],
+  },
+  {
+    question: "Which is the smallest country in the world ?",
+    answers: [
+      {
+        text: "Vatican city",
+        correct: true,
+      },
+      {
+        text: "Bhutan",
+        correct: false,
+      },
+      {
+        text: "Nepal",
+        correct: false,
+      },
+      {
+        text: "Srilanka",
         correct: false,
       },
     ],
   },
 ];
+const questionElement = document.getElementById("question");
+const answerButton = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn");
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function startQuiz() {
+  currentQuestionIndex = 0;
+  score = 0;
+  nextButton.innerHTML = "Next";
+  showQuestion();
+}
