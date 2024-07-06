@@ -1,42 +1,42 @@
 const questions = [
   {
-    question: "Which is the largest animal in the world ?",
+    question: "Which river is the longest in the world ?",
     answers: [
       {
-        text: "Shark",
+        text: "Amazon River",
         correct: false,
       },
       {
-        text: "Blue whale",
+        text: "Nile River",
         correct: true,
       },
       {
-        text: "Elephant",
+        text: "Mississippi River",
         correct: false,
       },
       {
-        text: "Giraffe",
+        text: "Yangtze",
         correct: false,
       },
     ],
   },
   {
-    question: "Which is the largest desert in the world ?",
+    question: "Which country is the largest by Land area ?",
     answers: [
       {
-        text: "kalahari",
+        text: "Australia",
         correct: false,
       },
       {
-        text: "Gobi",
+        text: "Brazil",
         correct: false,
       },
       {
-        text: "Sahara",
+        text: "Canada",
         correct: false,
       },
       {
-        text: "Antarctica",
+        text: "Russia",
         correct: true,
       },
     ],
@@ -63,22 +63,22 @@ const questions = [
     ],
   },
   {
-    question: "Which is the smallest country in the world ?",
+    question: "What is the tallest mountain in the world ?",
     answers: [
       {
-        text: "Vatican city",
+        text: "Mount Everest",
         correct: true,
       },
       {
-        text: "Bhutan",
+        text: "K2",
         correct: false,
       },
       {
-        text: "Nepal",
+        text: "Mount kilimanjaro",
         correct: false,
       },
       {
-        text: "Srilanka",
+        text: "Mount McKinley",
         correct: false,
       },
     ],
@@ -109,6 +109,7 @@ function showQuestion() {
     button.innerHTML = answer.text;
     button.classList.add("btn");
     answerButtons.appendChild(button);
+
     if (answer.correct) {
       button.dataset.correct = answer.correct;
     }
@@ -130,5 +131,12 @@ function selectAnswer(e) {
   } else {
     selectedBtn.classList.add("incorrect");
   }
+  Array.from(answerButtons.children).forEach((button) => {
+    if (button.dataset.correct === "true") {
+      button.classList.add("correct");
+    }
+    button.disabled = true;
+  });
+  nextButton.style.display = "block";
 }
 startQuiz();
